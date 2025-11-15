@@ -18,7 +18,7 @@ const Hero = () => {
             <div className="md:flex align-middle justify-center lg:justify-start">
               <Link
                 href="/home"
-                className="flex border w-full md:w-auto mt-5 md:mt-0 border-primary justify-center rounded-full text-xl font-medium items-center py-5 px-10 dark:text-white hover:text-white hover:bg-sky-400 dark:hover:bg-sky-500"
+                className="flex border text-blue-400 w-full md:w-auto mt-5 md:mt-0 border-primary justify-center rounded-full text-xl font-medium items-center py-5 px-10 dark:text-white hover:text-white hover:bg-sky-400 dark:hover:bg-sky-500"
               >
                 Explore now
               </Link>
@@ -34,7 +34,7 @@ const Hero = () => {
                 width={68}
                 height={68}
               />
-              <p className="text-lg font-normal">
+              <p className="text-lg font-normal text-blue-400">
                 More than 500+ <br /> recipes.
               </p>
             </div>

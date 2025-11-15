@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="sm:flex sm:items-center sm:justify-between">
           <a
             href="."
-            className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse dark:text-cyan-500"
+            className="flex text-blue-400 items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse dark:text-cyan-500"
           >
             <FaBlog className="text-5xl" />
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">

@@ -25,7 +25,7 @@ const Cook = () => {
             />
           </div>
           <div className="col-span-6 flex flex-col justify-center">
-            <p className="text-primary text-lg font-normal mb-3 tracking-widest uppercase text-start">
+            <p className="text-blue-400 text-lg font-normal mb-3 tracking-widest uppercase text-start">
               Read with us
             </p>
             <h2 className="text-3xl lg:text-5xl font-semibold text-black dark:text-white text-start">

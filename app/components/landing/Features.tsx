@@ -40,7 +40,7 @@ const Features = () => {
         id="about-section"
       >
         <div className="text-center mb-14">
-          <p className="text-primary text-lg font-normal mb-3 tracking-widest uppercase">
+          <p className="text-lg text-blue-400 font-normal mb-3 tracking-widest uppercase">
             Explore
           </p>
           <h2 className="text-3xl lg:text-5xl font-semibold text-black dark:text-white lg:max-w-60% mx-auto">
@@ -70,7 +70,7 @@ const Features = () => {
               <div className="flex items-center justify-center ">
                 <Link
                   href="/home"
-                  className="text-center text-lg group duration-300 ease-in-out font-small text-primary mt-2 overflow-hidden flex items-center relative after:absolute after:w-full after:h-px after:bg-primary after:bottom-0 after:right-0 after:translate-x-full hover:after:translate-x-0"
+                  className="text-center text-blue-400 text-lg group duration-300 ease-in-out font-small text-primary mt-2 overflow-hidden flex items-center relative after:absolute after:w-full after:h-px after:bg-primary after:bottom-0 after:right-0 after:translate-x-full hover:after:translate-x-0"
                 >
                   Learn More
                   <MdArrowForwardIos size={15} />

@@ -26,14 +26,16 @@ async function dbConnect() {
     const opts = {
       bufferCommands: false,
     };
-    cached.promise = await mongoose
+    cached.promise = mongoose
       .connect(MONGODB_URI, opts)
       .then((mongoose) => {
         console.log("Db connected");
         return mongoose;
       })
       .catch((err) => {
-        console.error(err);
+        console.error("Database connection error:", err);
+        cached.promise = null;
+        throw err;
       });
   }
   try {

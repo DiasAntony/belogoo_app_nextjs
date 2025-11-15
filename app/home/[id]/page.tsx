@@ -4,6 +4,7 @@ import PostProfile from "./PostProfile";
 import Comments from "@/app/components/Comments";
 import AddComment from "@/app/components/AddComment";
 import { Metadata } from "next";
+import dbConnect from "@/libs/dbConn";
 
 // The error indicates that Mongoose doesn't know about the "User" model when you try to populate it in your Post query.
 // Even though you've defined and exported the User model, you need to make sure it's imported (and therefore registered)
@@ -20,6 +21,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ id: string }>;
 }): Promise<Metadata> {
+  await dbConnect();
   const post = await Post.findById((await params).id);
   return {
     metadataBase: new URL(
@@ -64,6 +66,7 @@ export async function generateMetadata({
 }
 
 const page = async ({ params }: Props) => {
+  await dbConnect();
   const postId = (await params).id;
 
   const post = await Post.findById(postId)
