@@ -1,268 +1,106 @@
-# 📝 Belogoo - Modern Blogging Platform
+# Belogoo - Modern Blogging Platform
 
-A full-featured, modern blogging platform built with Next.js 15, MongoDB, and TypeScript. Belogoo provides a seamless experience for content creators to share their thoughts, engage with readers through comments, and manage their blog posts with a beautiful, responsive interface.
+Belogoo is a full-stack, premium blogging platform built with modern web technologies. It is designed to offer a seamless and visually stunning experience for writers to publish posts and for readers to engage with content. The platform includes a robust administrative dashboard, user authentication, profile management, and interactive commenting systems.
 
-![Next.js](https://img.shields.io/badge/Next.js-15.1.5-black?style=flat-square&logo=next.js)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat-square&logo=typescript)
-![MongoDB](https://img.shields.io/badge/MongoDB-8.9.5-green?style=flat-square&logo=mongodb)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4.17-38bdf8?style=flat-square&logo=tailwind-css)
+## 🚀 Overview
 
-## ✨ Features
+The application is built to demonstrate a complete, production-ready full-stack architecture using the latest Next.js App Router paradigm. It handles everything from secure user authentication using JWT and OTP verification, to complex state management and media handling via Cloudinary. The UI/UX is heavily prioritized, featuring custom CSS animations, premium glassmorphism effects, and responsive Tailwind CSS layouts.
 
-### 🎯 Core Features
-- **User Authentication & Authorization**
-  - Secure user registration and login
-  - Email verification with OTP
-  - Password reset functionality
-  - JWT-based session management
-  - Role-based access control (Admin/User)
+## 🏗 Architecture
 
-- **Blog Management**
-  - Rich text editor (Jodit) for creating and editing posts
-  - Public/Private post visibility
-  - Post thumbnails with Cloudinary integration
-  - Post ratings and likes
-  - SEO-optimized metadata for each post
+The project follows a modern Serverless Architecture pattern:
+- **Frontend & Backend (Monolith via Next.js):** Utilizes Next.js 15's App Router to handle both client-side rendering (CSR) for dynamic UI components and Server-Side Rendering (SSR) / API Routes for backend logic.
+- **Database Layer:** MongoDB with Mongoose ODM for structured, scalable data modeling.
+- **Media Storage:** Cloudinary integration for scalable, optimized image uploads (avatars, post thumbnails).
+- **Security & Auth:** Custom JWT implementation using `jose`, paired with `bcrypt` for password hashing and `nodemailer` for email-based OTP verification.
 
-- **Social Features**
-  - Comment system on blog posts
-  - User profiles with avatars
-  - Social media links (Facebook, Twitter, LinkedIn)
-  - User bio and profession display
+## 💻 Tech Stack
 
-- **Admin Dashboard**
-  - User management
-  - Post management
-  - Feedback system
-  - Admin-only routes and features
+### Core Technologies
+- **Framework:** Next.js 15 (App Router)
+- **UI Library:** React 19
+- **Styling:** Tailwind CSS + Custom Vanilla CSS (Animations/Transitions)
+- **Language:** TypeScript
 
-- **User Experience**
-  - Dark mode support
-  - Responsive design (mobile-first)
-  - Loading states and error handling
-  - Beautiful landing page with hero section
-  - About, Contact, and Privacy Policy pages
+### Backend & Database
+- **Database:** MongoDB
+- **ODM:** Mongoose
+- **Media Storage:** Cloudinary API
 
-## 🛠️ Tech Stack
+### Security & Utilities
+- **Authentication:** Custom JWT (`jose`) & HTTP-Only Cookies
+- **Password Hashing:** Bcrypt
+- **Email Service:** Nodemailer
+- **Rich Text Editor:** Jodit-React
+- **Icons:** React-Icons
 
-### Frontend
-- **Next.js 15.1.5** - React framework with App Router
-- **React 19** - UI library
-- **TypeScript** - Type safety
-- **Tailwind CSS** - Utility-first CSS framework
-- **Jodit React** - Rich text editor
-- **React Icons** - Icon library
+## ✨ Key Features
 
-### Backend
-- **Next.js API Routes** - Serverless API endpoints
-- **MongoDB** - NoSQL database
-- **Mongoose** - MongoDB object modeling
-- **bcrypt** - Password hashing
-- **JOSE** - JWT token handling
+### User Experience (Frontend)
+- **Premium UI Design:** Dark mode support, glassmorphism overlays, custom scrollbars, and staggered micro-animations (`animate-fade-in-up`, `card-animated`).
+- **Rich Text Authoring:** Integrated WYSIWYG editor allowing users to format blog posts easily.
+- **Interactive Commenting:** Real-time feedback and comment sections on individual blog posts.
+- **User Profiles:** Customizable user profiles with bio, social links, and avatar uploads.
 
-### Services & Tools
-- **Cloudinary** - Image upload and management
-- **Nodemailer** - Email service for OTP and notifications
-- **ESLint** - Code linting
+### Administrative Capabilities (Admin Panel)
+- **Dashboard Statistics:** At-a-glance metrics for total users, posts, and system feedback.
+- **User Management:** Full administrative control to view, delete, or forcibly reset user passwords via secure modals.
+- **Content Moderation:** Ability to oversee all posts and manage user feedback.
 
-## 📋 Prerequisites
+### Security & Authentication
+- **OTP Email Verification:** Secure sign-up and password reset workflows requiring email validation.
+- **Role-Based Access Control (RBAC):** Distinct privileges for standard users versus administrators (Role 1).
+- **Session Management:** Encrypted, HTTP-only cookie-based sessions to prevent XSS attacks.
 
-Before you begin, ensure you have the following installed:
-- **Node.js** (v18 or higher)
-- **npm** or **yarn** or **pnpm**
-- **MongoDB** (local or MongoDB Atlas account)
-- **Cloudinary** account (for image uploads)
-- Email service credentials (for Nodemailer)
+## 📂 Project Structure
 
-## 🚀 Getting Started
-
-### 1. Clone the Repository
-
-```bash
-git clone <your-repo-url>
-cd belogoo_app_nextjs
-```
-
-### 2. Install Dependencies
-
-```bash
-npm install
-# or
-yarn install
-# or
-pnpm install
-```
-
-### 3. Environment Variables
-
-Create a `.env.local` file in the root directory and add the following variables:
-
-```env
-# Database
-MONGODB_URI=your_mongodb_connection_string
-
-# Application URL
-NEXT_PUBLIC_URL=http://localhost:3000
-
-# Cloudinary (for image uploads)
-CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
-CLOUDINARY_API_KEY=your_cloudinary_api_key
-CLOUDINARY_API_SECRET=your_cloudinary_api_secret
-
-# JWT Secret
-JWT_SECRET=your_jwt_secret_key
-
-# Email Configuration (for Nodemailer)
-EMAIL_HOST=smtp.gmail.com
-EMAIL_PORT=587
-EMAIL_USER=your_email@gmail.com
-EMAIL_PASS=your_email_app_password
-```
-
-### 4. Run the Development Server
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
-
-### 5. Build for Production
-
-```bash
-npm run build
-npm start
-```
-
-## 📁 Project Structure
-
-```
+```text
 belogoo_app_nextjs/
-├── app/                    # Next.js App Router directory
-│   ├── api/               # API routes
-│   │   ├── admin/         # Admin endpoints
-│   │   ├── post/          # Post endpoints
-│   │   ├── user/          # User authentication endpoints
-│   │   └── feedback/      # Feedback endpoints
-│   ├── components/        # React components
-│   │   └── landing/       # Landing page components
-│   ├── home/              # Blog post pages
-│   ├── admin/             # Admin dashboard
-│   ├── profile/           # User profile pages
-│   ├── post/              # Create/edit post pages
-│   ├── signin/            # Sign in page
-│   ├── signup/            # Sign up page
-│   └── layout.tsx         # Root layout
-├── libs/                   # Utility libraries
-│   ├── dbConn.ts          # MongoDB connection
-│   ├── mailTrigger.ts     # Email service
-│   └── session.ts         # Session management
-├── models/                 # Mongoose models
-│   ├── user.ts            # User model
-│   ├── post.ts            # Post model
-│   ├── feedback.ts        # Feedback model
-│   └── otptoken.ts        # OTP token model
-├── public/                 # Static assets
-├── middleware.ts           # Next.js middleware
-└── package.json          # Dependencies
+├── app/
+│   ├── admin/           # Administrative panel routes and dashboard
+│   ├── api/             # Backend API routes (Auth, Posts, Users, Admin)
+│   ├── components/      # Reusable React UI components (Nav, Cards, Modals)
+│   ├── home/            # Main feed and individual post views
+│   ├── profile/         # User profile management and editing
+│   └── globals.css      # Global styles and custom animation utility classes
+├── libs/                # Core utilities (DB connection, Session decryption)
+├── models/              # Mongoose database schemas (User, Post, Feedback, Otp)
+├── public/              # Static assets and placeholder images
+├── tailwind.config.ts   # Tailwind configuration and custom theme extensions
+└── middleware.js        # Edge middleware for route protection and auth checks
 ```
 
-## 🎨 Key Features Explained
+## 🛠 Setup & Installation
 
-### Rich Text Editor
-The application uses Jodit React editor, allowing users to create formatted blog posts with images, links, and various text styles.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/DiasAntony/belogoo_app_nextjs.git
+   cd belogoo_app_nextjs
+   ```
 
-### Image Management
-Post thumbnails and user avatars are uploaded to Cloudinary, providing optimized image delivery and storage.
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-### Authentication Flow
-1. User registration with email verification
-2. OTP sent via email for verification
-3. Secure login with JWT tokens
-4. Password reset functionality with email confirmation
+3. **Configure Environment Variables:**
+   Create a `.env` file in the root directory and add the following:
+   ```env
+   MONGODB_URI=your_mongodb_connection_string
+   JWT_SECRET=your_secure_jwt_secret
+   CLOUDINARY_URL=your_cloudinary_url
+   SMTP_HOST=your_smtp_host
+   SMTP_USER=your_email
+   SMTP_PASS=your_email_password
+   ```
 
-### SEO Optimization
-Each blog post has dynamic metadata including:
-- Custom title and description
-- Open Graph tags for social sharing
-- Dynamic thumbnail images
-- Structured URLs
+4. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-### Admin Features
-- View and manage all users
-- Moderate blog posts
-- View user feedback
-- Access to admin-only routes
-
-## 🔒 Security Features
-
-- Password hashing with bcrypt (12 salt rounds)
-- JWT-based authentication
-- Protected API routes
-- Role-based access control
-- Input validation and sanitization
-- Secure session management
-
-## 🌐 API Endpoints
-
-### User Endpoints
-- `POST /api/user` - Register new user
-- `POST /api/user/login` - User login
-- `POST /api/user/logout` - User logout
-- `POST /api/user/forget/email` - Request password reset
-- `POST /api/user/otp` - Verify OTP
-
-### Post Endpoints
-- `GET /api/post` - Get all posts
-- `POST /api/post` - Create new post
-- `GET /api/post/[id]` - Get single post
-- `POST /api/post/comment` - Add comment to post
-
-### Admin Endpoints
-- `GET /api/admin/user` - Get all users (Admin only)
-- `GET /api/admin/post` - Get all posts (Admin only)
-
-## 🧪 Development
-
-### Linting
-```bash
-npm run lint
-```
-
-### Type Checking
-TypeScript is configured to check types during build. Ensure all types are properly defined.
-
-## 📝 Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm start` - Start production server
-- `npm run lint` - Run ESLint
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
-
-## 📄 License
-
-This project is private and proprietary. All rights reserved.
-
-## 👨‍💻 Author
-
-**Diaz**
-- Passionate software developer with 2 years of experience
-- Full-stack development expertise
-
-## 🙏 Acknowledgments
-
-- Next.js team for the amazing framework
-- MongoDB for the database solution
-- All open-source contributors whose packages made this project possible
-
----
-
-**Note**: Make sure to set up all environment variables correctly before running the application. The application requires MongoDB, Cloudinary, and email service credentials to function properly.
+## 🎯 Future Roadmap
+- Integration of a robust search and tagging system for posts.
+- Social features including "Likes" and "Followers".
+- Server-side caching optimizations using Next.js caching layers.
