@@ -63,7 +63,7 @@ const SignInCom = () => {
   };
 
   return (
-    <form className="max-w-lg flex flex-col gap-3">
+    <form className="max-w-lg flex flex-col gap-3 animate-scale-in">
       <div>
         <label
           htmlFor="email"
@@ -77,7 +77,7 @@ const SignInCom = () => {
           name="email"
           value={data.email}
           onChange={onChange}
-          className="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm transition-all duration-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 hover:border-blue-400"
         />
       </div>
       <div>
@@ -93,21 +93,21 @@ const SignInCom = () => {
           id="password"
           value={data.password}
           onChange={onChange}
-          className="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm transition-all duration-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 hover:border-blue-400"
         />
       </div>
       <button
         type="button"
         onClick={submitHandler}
-        className="block text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 mt-2 dark:bg-cyan-500 dark:hover:bg-cyan-700 dark:focus:ring-gray-700 dark:border-gray-700"
+        className="btn-animated block text-white bg-blue-600 hover:bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 mt-2 dark:bg-cyan-600 dark:hover:bg-cyan-700"
       >
         {loading ? (
-          <PiSpinnerGapThin className="inline text-center" />
+          <PiSpinnerGapThin className="inline text-center animate-spin" size={20} />
         ) : (
           "Sign in"
         )}
       </button>
-      <p className="text-red-600">{error}</p>
+      {error && <p className="text-red-500 text-sm animate-pop-in">{error}</p>}
     </form>
   );
 };

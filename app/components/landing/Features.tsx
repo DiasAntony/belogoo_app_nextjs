@@ -39,41 +39,46 @@ const Features = () => {
         className="container mx-auto lg:max-w-screen-xl md:max-w-screen-md"
         id="about-section"
       >
-        <div className="text-center mb-14">
-          <p className="text-lg text-blue-400 font-normal mb-3 tracking-widest uppercase">
+        <div className="text-center mb-14 animate-fade-in-up">
+          <p className="text-lg text-blue-500 font-semibold mb-3 tracking-widest uppercase text-glow">
             Explore
           </p>
-          <h2 className="text-3xl lg:text-5xl font-semibold text-black dark:text-white lg:max-w-60% mx-auto">
+          <h2 className="text-3xl lg:text-5xl font-bold text-slate-800 dark:text-slate-100 lg:max-w-[60%] mx-auto leading-tight">
             Get a many of interesting Topics
           </h2>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-y-20 gap-x-5 mt-40">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mt-20">
           {FeaturesData.map((items, i) => (
             <div
-              className="p-8 relative rounded-3xl bg-gradient-to-b from-black/5 to-white dark:from-white/5 dark:to-black"
+              className={`p-8 pt-0 relative rounded-3xl glass-card group hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/10 cursor-pointer animate-fade-in-up flex flex-col items-center`}
+              style={{ animationDelay: `${i * 0.15}s` }}
               key={i}
             >
-              <div className="work-img-bg rounded-full flex justify-center absolute -top-[50%] sm:top-[-40%] md:top-[-55%] lg:top-[-45%] left-[0%]">
-                <Image
-                  src={items.imgSrc}
-                  alt={items.imgSrc}
-                  width={510}
-                  height={10}
-                />
+              <div className="flex justify-center -mt-12 mb-6 transition-transform duration-500 group-hover:scale-110">
+                <div className="bg-white dark:bg-slate-800 p-4 rounded-full shadow-lg border border-gray-100 dark:border-slate-700">
+                  <Image
+                    src={items.imgSrc}
+                    alt={items.heading}
+                    width={100}
+                    height={100}
+                    className="drop-shadow-lg object-contain w-[100px] h-[100px]"
+                  />
+                </div>
               </div>
-              <h3 className="text-2xl text-black dark:text-white font-semibold text-center mt-16">
+              <h3 className="text-2xl text-slate-800 dark:text-white font-bold text-center transition-colors group-hover:text-blue-500">
                 {items.heading}
               </h3>
-              <p className="text-lg font-normal text-black/50 dark:text-white/50 text-center mt-2">
+              <p className="text-md font-medium text-slate-500 dark:text-slate-400 text-center mt-4 mb-4 flex-grow">
                 {items.subheading}
               </p>
-              <div className="flex items-center justify-center ">
+              <div className="flex items-center justify-center mt-6">
                 <Link
                   href="/home"
-                  className="text-center text-blue-400 text-lg group duration-300 ease-in-out font-small text-primary mt-2 overflow-hidden flex items-center relative after:absolute after:w-full after:h-px after:bg-primary after:bottom-0 after:right-0 after:translate-x-full hover:after:translate-x-0"
+                  className="text-center text-blue-500 font-semibold text-lg flex items-center gap-2 group/link relative"
                 >
                   Learn More
-                  <MdArrowForwardIos size={15} />
+                  <MdArrowForwardIos size={15} className="transition-transform duration-300 group-hover/link:translate-x-1" />
+                  <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-blue-500 transition-all duration-300 group-hover/link:w-full"></span>
                 </Link>
               </div>
             </div>

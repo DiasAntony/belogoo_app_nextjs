@@ -28,7 +28,7 @@ const page = async ({
 
   return (
     <>
-      <div className="dark:text-cyan-500 mt-2 flex flex-row flex-wrap justify-evenly">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-6">
         {users.map((e, i) => {
           return (
             <AdminUsers

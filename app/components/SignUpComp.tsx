@@ -73,8 +73,8 @@ const SignUpComp = () => {
   };
 
   return (
-    <div className="p-5 border rounded text-gray-500 max-w-lg mx-auto flex flex-col gap-3 mt-10">
-      <form className="max-w-lg flex flex-col gap-3">
+    <div className="p-8 border rounded-xl text-gray-500 max-w-lg mx-auto flex flex-col gap-4 mt-10 animate-scale-in bg-white dark:bg-gray-800 shadow-xl border-gray-200 dark:border-gray-700">
+      <form className="w-full flex flex-col gap-4">
         <div className="col-span-2 sm:col-span-1">
           <label
             htmlFor="firstName"
@@ -86,7 +86,7 @@ const SignUpComp = () => {
             type="text"
             name="firstName"
             id="firstName"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 transition-all duration-300 hover:border-blue-400 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="..."
             required
             value={data.firstName}
@@ -104,7 +104,7 @@ const SignUpComp = () => {
             type="text"
             name="lastName"
             id="lastName"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 transition-all duration-300 hover:border-blue-400 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="..."
             required
             value={data.lastName}
@@ -124,7 +124,7 @@ const SignUpComp = () => {
             id="small-input"
             value={data.email}
             onChange={onChange}
-            className="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="block w-full p-2.5 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 hover:border-blue-400 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           />
         </div>
         <div>
@@ -140,31 +140,31 @@ const SignUpComp = () => {
             id="small-input"
             value={data.password}
             onChange={onChange}
-            className="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="block w-full p-2.5 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 hover:border-blue-400 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           />
         </div>
         <button
           type="submit"
           onClick={submitHandler}
-          className="block text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 mt-2 dark:bg-cyan-500 dark:hover:bg-cyan-700 dark:focus:ring-gray-700 dark:border-gray-700"
+          className="btn-animated block w-full text-white bg-blue-600 hover:bg-blue-700 font-medium rounded-lg text-sm px-5 py-3 mt-4 dark:bg-cyan-600 dark:hover:bg-cyan-700"
         >
           {loading ? (
-            <PiSpinnerGapThin className="inline text-center" />
+            <PiSpinnerGapThin className="inline text-center animate-spin" size={20} />
           ) : (
             "Sign up"
           )}
         </button>
       </form>
-      <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+      <p className="text-sm font-light text-gray-500 dark:text-gray-400 mt-2">
         Already have an account?{" "}
         <Link
           href="/signin"
-          className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+          className="font-medium text-blue-600 hover:underline dark:text-cyan-500 transition-colors duration-300"
         >
           Login here
         </Link>
       </p>
-      <p className="text-red-600">{error}</p>
+      {error && <p className="text-red-500 text-sm animate-pop-in">{error}</p>}
     </div>
   );
 };

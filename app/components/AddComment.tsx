@@ -52,29 +52,31 @@ const AddComment = ({ postId }: Props) => {
   };
 
   return (
-    <form className="mb-6">
-      <div className="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+    <form className="mb-8">
+      <div className="mb-4">
         <label htmlFor="comment" className="sr-only">
           Your comment
         </label>
         <textarea
           id="comment"
-          rows={6}
-          className="px-0 w-full text-sm text-gray-900 border-0 outline-none focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
+          rows={5}
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-4 transition-all duration-300 hover:border-blue-400 dark:bg-gray-800 dark:border-gray-700 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 shadow-sm resize-y"
           placeholder="Write a comment..."
           required
           value={comment}
           onChange={(e) => setComment(e.target.value)}
         ></textarea>
-        {error && <p className="text-red-600">{error}</p>}
+        {error && <p className="text-red-500 dark:text-red-400 mt-2 text-sm">{error}</p>}
       </div>
-      <button
-        type="button"
-        onClick={submitHandler}
-        className="block text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 mt-2 dark:bg-cyan-500 dark:hover:bg-cyan-700 dark:focus:ring-gray-700 dark:border-gray-700"
-      >
-        {loading ? <PiSpinnerGapThin className="inline text-center" /> : "post"}
-      </button>
+      <div className="flex justify-end">
+        <button
+          type="button"
+          onClick={submitHandler}
+          className="btn-animated text-white bg-blue-600 hover:bg-blue-700 focus:outline-none font-medium rounded-lg text-sm px-6 py-2.5 dark:bg-cyan-600 dark:hover:bg-cyan-700 shadow-md min-w-[140px] flex justify-center items-center"
+        >
+          {loading ? <PiSpinnerGapThin className="inline animate-spin" size={20} /> : "Post Comment"}
+        </button>
+      </div>
     </form>
   );
 };

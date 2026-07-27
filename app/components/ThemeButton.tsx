@@ -1,10 +1,13 @@
 "use client";
 import { useEffect, useState } from "react";
+import { FaSun, FaMoon, FaDesktop } from "react-icons/fa";
 
 export default function ThemeButton() {
   const [activeTheme, setActiveTheme] = useState<string>("system");
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "system" || !savedTheme) {
       applySystemTheme();
@@ -36,16 +39,6 @@ export default function ThemeButton() {
     }
   };
 
-  const handleThemeChange = (newTheme: string) => {
-    setActiveTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
-    if (newTheme === "system") {
-      applySystemTheme();
-    } else {
-      applyTheme(newTheme);
-    }
-  };
-
   const applySystemTheme = () => {
     const systemPrefersDark = window.matchMedia(
       "(prefers-color-scheme: dark)"
@@ -57,21 +50,36 @@ export default function ThemeButton() {
     }
   };
 
+  const toggleTheme = () => {
+    let newTheme = "light";
+    if (activeTheme === "light") newTheme = "dark";
+    if (activeTheme === "dark") newTheme = "system";
+    
+    setActiveTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+    if (newTheme === "system") {
+      applySystemTheme();
+    } else {
+      applyTheme(newTheme);
+    }
+  };
+
+  if (!mounted) {
+    return <div className="w-8 h-8"></div>; // Placeholder to avoid layout shift
+  }
+
   return (
-    <form className="max-w-sm mx-auto">
-      <label htmlFor="underline_select" className="sr-only">
-        Underline select
-      </label>
-      <select
-        id="underline_select"
-        className="block py-2.5 px-1.5 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
-        value={activeTheme}
-        onChange={(e) => handleThemeChange(e.target.value)}
-      >
-        <option value="system">System</option>
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-      </select>
-    </form>
+    <button
+      onClick={toggleTheme}
+      className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-slate-700 transition-all duration-300 flex items-center justify-center relative overflow-hidden group"
+      aria-label="Toggle Theme"
+      title={`Current theme: ${activeTheme}`}
+    >
+      <div className="relative w-5 h-5 flex items-center justify-center transition-transform duration-500 transform group-hover:rotate-12">
+        {activeTheme === "light" && <FaSun size={20} className="text-amber-500 animate-scale-in absolute" />}
+        {activeTheme === "dark" && <FaMoon size={20} className="text-blue-400 animate-scale-in absolute" />}
+        {activeTheme === "system" && <FaDesktop size={20} className="text-gray-500 dark:text-gray-400 animate-scale-in absolute" />}
+      </div>
+    </button>
   );
 }

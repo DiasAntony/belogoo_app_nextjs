@@ -15,8 +15,8 @@ const page = async ({
     .select({ title: 1, thumbnail: 1, description: 1 });
 
   return (
-    <>
-      <div className="dark:text-cyan-500 mt-2 flex flex-row flex-wrap justify-evenly">
+    <div className="container mx-auto px-4 mt-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {post.map((e, i) => {
           return (
             <PostCard
@@ -30,16 +30,16 @@ const page = async ({
         })}
       </div>
       {post.length > 9 && (
-        <button
-          type="button"
-          className="w-full text-white bg-gray-800 hover:bg-gray-900 text-center focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-cyan-500 dark:hover:bg-cyan-700 dark:focus:ring-gray-700 dark:border-gray-700"
-        >
-          <Link href={"?page=" + parseInt((await searchParams).page) + 6}>
+        <div className="flex justify-center mt-12 mb-8">
+          <Link 
+            href={"?page=" + parseInt((await searchParams).page) + 6}
+            className="btn-animated text-white bg-blue-600 hover:bg-blue-700 text-center font-medium rounded-lg text-sm px-8 py-3 dark:bg-cyan-600 dark:hover:bg-cyan-700 shadow-md"
+          >
             Load more
           </Link>
-        </button>
+        </div>
       )}
-    </>
+    </div>
   );
 };
 

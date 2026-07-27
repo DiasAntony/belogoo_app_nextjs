@@ -14,7 +14,7 @@ const page = async ({
 
   return (
     <>
-      <div className="dark:text-cyan-500 mt-2 flex flex-col flex-wrap justify-evenly gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
         {feedBacks.map((e) => {
           return (
             <FeedBackCard

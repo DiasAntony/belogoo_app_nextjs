@@ -34,9 +34,9 @@ const Comments = async ({ commentsData, postId, userId }: Props) => {
       {commentsData.map((comment: IComment) => (
         <article
           key={comment._id}
-          className="p-6 mb-6 text-base bg-white rounded-lg dark:bg-gray-900"
+          className="p-6 mb-6 text-base card-animated animate-fade-in-up"
         >
-          <footer className="flex justify-between items-center mb-2">
+          <footer className="flex justify-between items-center mb-4">
             <div className="flex items-center">
               <p className="inline-flex items-center mr-3 font-semibold text-sm text-gray-900 dark:text-white">
                 <Image

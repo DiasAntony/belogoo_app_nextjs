@@ -56,10 +56,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`bg-white dark:bg-slate-950 ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`bg-slate-50 dark:bg-slate-950 ${geistSans.variable} ${geistMono.variable} antialiased selection:bg-blue-400 selection:text-white`}
       >
         <Header />
-        <div className="pt-20 px-5 md:container md:mx-auto">{children}</div>
+        <div className="pt-20 px-5 md:container md:mx-auto animate-fade-in relative z-0">
+          {children}
+        </div>
       </body>
     </html>
   );

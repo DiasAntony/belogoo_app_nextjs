@@ -23,41 +23,41 @@ const NavBtn = () => {
 
   return (
     <>
-      <ul className="hidden md:flex items-center">
+      <ul className="hidden md:flex items-center gap-6">
         {links.map(({ id, link }) => (
           <li
             key={id}
-            className={`nav-links px-4 cursor-pointer font-medium hover:scale-105 hover:text-black dark:hover:text-white duration-200 link-underline
-                  ${
-                    currentPath == `/${link}`
-                      ? "text-black dark:text-white"
-                      : "text-gray-500"
-                  }`}
+            className={`nav-link text-lg capitalize ${
+              currentPath === `/${link}`
+                ? "text-blue-500 dark:text-cyan-400 font-semibold"
+                : ""
+            }`}
           >
-            <Link className="capitalize" href={"/" + link}>
+            <Link href={"/" + link}>
               {link}
             </Link>
           </li>
         ))}
-        <li>
+        <li className="ml-4 transition-transform duration-300 hover:scale-110">
           <ThemeButton />
         </li>
       </ul>
       <div
         onClick={() => setNav(!nav)}
-        className="cursor-pointer pr-4 z-10 text-gray-500 md:hidden"
+        className="cursor-pointer z-50 text-gray-500 md:hidden transition-transform duration-300 hover:scale-110 active:scale-95"
       >
-        {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
+        {nav ? <FaTimes size={30} className="animate-fade-in" /> : <FaBars size={30} className="animate-fade-in" />}
       </div>
 
       {nav && (
-        <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-white dark:bg-gradient-to-b from-black to-gray-800 text-gray-500">
-          {links.map(({ id, link }) => (
+        <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-white dark:bg-slate-900 text-gray-500 animate-slide-down z-40 backdrop-blur-lg bg-opacity-95 dark:bg-opacity-95">
+          {links.map(({ id, link }, index) => (
             <li
               key={id}
-              className="px-4 cursor-pointer capitalize py-6 text-4xl"
+              className="px-4 cursor-pointer capitalize py-6 text-4xl animate-fade-in-up"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
-              <Link onClick={() => setNav(!nav)} href={link}>
+              <Link onClick={() => setNav(!nav)} href={link} className="hover:text-blue-500 dark:hover:text-cyan-400 transition-colors duration-300">
                 {link}
               </Link>
             </li>
